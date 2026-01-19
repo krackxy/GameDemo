@@ -58,10 +58,10 @@ summons Summon(int id) {
 }
 
 level1 lowTierCombat() {
-    level1 goblin(5,2,11,2,8,0,"Goblin",DamageType::Bludgeoning,DamageVun::None, false);
-    level1 kobold(6, 3, 12, 2, 8, 0,"Kobold",DamageType::Slashing,DamageVun::None, false);
-    level1 bear(12, 6, 8, 8, 6, 0,"Bear",DamageType::Slashing,DamageVun::Fire, false);
-    level1 Bandit(8, 4, 14, 4, 4, 0,"Bandit",DamageType::Piercing,DamageVun::None, false);
+    level1 goblin(5,11,3,8,3,1,"Goblin",DamageVun::None, false);
+    level1 kobold(6, 12, 2, 8, 3, 2,"Kobold",DamageVun::None, false);
+    level1 bear(12, 8, 8, 6, 2, 3,"Bear",DamageVun::Fire, false);
+    level1 Bandit(8, 14, 4, 4, 3, 4,"Bandit",DamageVun::None, false);
     int enemy = rand()%4+1;
     switch (enemy) {
         case 1: {

@@ -3,6 +3,7 @@
 std::vector<std::string> dmgType = {"Slashing", "Bludgening", "Piercing", "Fire", "Lightning", "Ice", "Darkness", "Light"};
 std::vector<std::string> summonType = {"Imp","Wyrm","Little golem", "None"};
 
+//Player attack function
 attacks  attacks::playerAttack(classes& player, level1& enemyTier1){
     int attack;
     switch (player.id) {
@@ -24,7 +25,7 @@ attacks  attacks::playerAttack(classes& player, level1& enemyTier1){
                 std::cout<<"You have the following attacks"<<'\n'<<"[1]Sword(Slashing)"<<'\n'<<"[2]Sword(Piercing)"<<'\n'<<"[3]Pommel strike(Bludgenoning)"<<'\n'<<"[4]Stunning strike(Stun enemy for 1 turn)"<<'\n'<<"Please input the wished action: ";
                 std::cin>>attack;
                 if (attack == 4) {
-                    enemyTier1.condition == true;
+                    enemyTier1.condition = "stunned";
                 }
                 std::map<int,attacks> fighterAttacks = {{1,attacks(DamageType::Slashing, 4,4,1)},{2,attacks(DamageType::Piercing, 5,5,2)},{3,attacks(DamageType::Bludgeoning, 2,3,3)},{4,attacks(DamageType::Slashing, 0,0,4)}};
                 return fighterAttacks.at(attack);
@@ -62,7 +63,7 @@ attacks  attacks::playerAttack(classes& player, level1& enemyTier1){
         }
     }
 }
-
+//Summon attack function
 attacks attacks::summonAttacks(summons& summon) {
     int attack;
     switch (summon.id) {
@@ -77,7 +78,7 @@ attacks attacks::summonAttacks(summons& summon) {
             //Golem
             std::cout<<"You have the following attacks"<<'\n'<<"[1]Slam(Bludgeoning)"<<'\n'<<"[2]LightningBolt(Lightning)"<<'\n'<<"[3]Body Slam(Bludgeoning)"<<'\n'<<"Please input the wished action: ";
             std::cin>>attack;
-            std::map<int,attacks> golemAttacks = {{1,attacks(DamageType::Bludgeoning, 4,2,1)},{2,attacks(DamageType::Lightning,6,3,2)}{3,attacks(DamageType::Bludgeoning,0,6,3)}};
+            std::map<int,attacks> golemAttacks = {{1,attacks(DamageType::Bludgeoning, 4,2,1)},{2,attacks(DamageType::Lightning,6,3,2)},{3,attacks(DamageType::Bludgeoning,0,6,3)}};
             return golemAttacks.at(attack);
         }
         case 3: {
@@ -88,4 +89,36 @@ attacks attacks::summonAttacks(summons& summon) {
             return aeroSpritAttacks.at(attack);
         }
     }
+}
+
+//Enemy attack function
+attacks attacks::enemyAttacks(level1& enemyTier1) {
+    int attack = rand()%4+1;
+    switch (enemyTier1.id) {
+        case 1:{
+            //Goblin
+            if (enemyTier1.condition == "stunned") {
+                return attacks(DamageType::None ,0,0,0);
+            }
+            std::map<int,attacks> enemy1Attack = {{1,attacks(DamageType::Bludgeoning,3,2,1)},{2,attacks(DamageType::Slashing,2,4,2)},{3,attacks(DamageType::Piercing,5,3,3)},{4,attacks(DamageType::Piercing,3,4,4)}};
+            return enemy1Attack.at(attack);
+        }
+        case 2: {
+            //Kobold
+            if (enemyTier1.condition == "stunned") {
+                return attacks(DamageType::None ,0,0,0);
+            }
+            std::map<int,attacks> enemy2Attack = {{1,attacks(DamageType::Bludgeoning,3,2,1)},{2,attacks(DamageType::Slashing,2,4,2)},{3,attacks(DamageType::Piercing,5,3,3)},{4,attacks(DamageType::Piercing,3,4,4)}};
+            return enemy2Attack.at(attack);
+        }
+        case 3: {
+            //Bear
+            if (enemyTier1.condition == "stunned") {
+                return attacks(DamageType::None ,0,0,0);
+            }
+            std::map<int,attacks> enemy3Attack = {{1,attacks(DamageType::Slashing,3,5,1)},{2,attacks(DamageType::Piercing,3,5,2)},{3,attacks(DamageType::Slashing,5,3,3)}};
+            return enemy3Attack.at(attack);
+        }
+    }
+
 }

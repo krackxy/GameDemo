@@ -11,6 +11,7 @@ class attacks {
 public:
     static attacks playerAttack(classes& player, level1& enemyTier1);
     static attacks summonAttacks(summons& summon);
+    static attacks enemyAttacks(level1& enemyTier1);
     DamageType dmgType;
     int toHit;
     int dmg;

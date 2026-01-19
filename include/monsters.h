@@ -4,27 +4,24 @@
 #include <vector>
 
 class level1 {
-    level1 lowTierCombat();
 public:
     int hp;
-    DamageType dmgType;
     DamageVun dmgVun;
-    int dmg;
     int ac;
     int exp;
     int speed;
     int amount;
     std::string name;
-    bool condition;
-    level1(int HP, int DMG, int AC, int EXP, int SPEED, int AMOUNT, std::string NAME, DamageType DMGTYPE, DamageVun DMG_VUN, bool CONDITION) {
+    std::string condition;
+    int id;
+    level1(int HP, int AC, int EXP, int SPEED, int AMOUNT, int ID,std::string NAME, DamageVun DMG_VUN, std::string CONDITION) {
         hp = HP;
-        dmg = DMG;
         ac = AC;
         exp = EXP;
         speed = SPEED;
         amount = AMOUNT;
         name = NAME;
-        dmgType = DMGTYPE;
+        id = ID;
         dmgVun = DMG_VUN;
         condition = CONDITION;
     }
@@ -32,41 +29,50 @@ public:
 
 class level2 {
 public:
-    int hp;
-    std::vector<std::string> dmgType;
-    std::vector<std::string> dmgVun;
-    int dmg;
+    int hp;;
+    DamageVun dmgVun;
     int ac;
     int exp;
     int speed;
-    level2(int HP, int DMG, int AC, int EXP, int SPEED, const std::vector<std::string>& DMG_VUN) {
+    int amount;
+    int id;
+    std::string name;
+    std::string condition;
+    level2(int HP, int AC, int EXP, int SPEED, int AMOUNT, int ID,std::string NAME, DamageVun DMG_VUN, std::string CONDITION) {
         hp = HP;
-        dmg = DMG;
         ac = AC;
         exp = EXP;
         speed = SPEED;
-        dmgType = {"Slashing", "Bludgening", "Piercing", "Fire", "Lightning", "Ice"};
+        amount = AMOUNT;
+        name = NAME;
+        id = ID;
         dmgVun = DMG_VUN;
+        condition = CONDITION;
     }
 };
 
 class level3 {
 public:
     int hp;
-    std::vector<std::string> dmgType;
-    std::vector<std::string> dmgVun = {"Slashing", "Bludgening", "Piercing", "Fire", "Lightning", "Ice", "Darkness", "Light","None"};
+    DamageVun dmgVun;
     int dmg;
     int ac;
     int exp;
     int speed;
-    level3(int HP, int DMG, int AC, int EXP, int SPEED, const std::vector<std::string>& DMG_VUN) {
+    int amount;
+    int id;
+    std::string name;
+    std::string condition;
+    level3(int HP, int AC, int EXP, int SPEED, int AMOUNT, int ID, std::string NAME, DamageVun DMG_VUN, std::string CONDITION) {
         hp = HP;
-        dmg = DMG;
         ac = AC;
         exp = EXP;
         speed = SPEED;
-        dmgType = {"Slashing", "Bludgening", "Piercing", "Fire", "Lightning", "Ice", "Darkness", "Light"};
+        amount = AMOUNT;
+        id = ID;
+        name = NAME;
         dmgVun = DMG_VUN;
+        condition = CONDITION;
     }
 };
 #endif //FUNNYGAME_MONSTERS_H
