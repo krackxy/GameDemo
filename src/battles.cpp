@@ -16,7 +16,7 @@ classes battles::battle(classes player){
         if (player.speed < enemyTier1.speed) {
             auto atk = attacks::playerAttack(player, enemyTier1);
             if (player.id == 4 && (atk.id == 2 || atk.id == 3 || atk.id == 4)){
-                summons shovel = Summon(atk.id);
+                summons summon = Summon(atk.id);
                 if (rand()%20+1+atk.toHit <= enemyTier1.ac) {
                     std::cout<<"You hit!"<<'\n';
                     if (enemyTier1.dmgVun == atk.dmgType) {
@@ -26,7 +26,7 @@ classes battles::battle(classes player){
                     enemyTier1.hp -= atk.dmg;
                     std::cout<<"You did "<<atk.dmg<<" damage!"<<'\n';
                 }
-                auto sumatk = attacks::summonAttacks(shovel);
+                auto sumatk = attacks::summonAttacks(summon);
                 if (rand()%20+1+sumatk.toHit <= enemyTier1.ac) {
                     std::cout<<"You hit!"<<'\n';
                     if (enemyTier1.dmgVun == sumatk.dmgType) {
