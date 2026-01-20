@@ -21,7 +21,7 @@ attacks  attacks::playerAttack(classes& player, level1& enemyTier1){
             return barbarianAttacks.at(attack);
         }
             case 2:{
-                //Figter
+                //Fighter
                 std::cout<<"You have the following attacks"<<'\n'<<"[1]Sword(Slashing)"<<'\n'<<"[2]Sword(Piercing)"<<'\n'<<"[3]Pommel strike(Bludgenoning)"<<'\n'<<"[4]Stunning strike(Stun enemy for 1 turn)"<<'\n'<<"Please input the wished action: ";
                 std::cin>>attack;
                 if (attack == 4) {

@@ -30,7 +30,7 @@ public:
 
 class summons {
 public:
-    summons summon(int id);
+    static summons summon(int id);
     int hp;
     int id;
     int ac;

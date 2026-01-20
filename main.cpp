@@ -8,7 +8,9 @@ classes classSelection();
 int main() {
     srand(time(nullptr));//seeds random so the code always generates random
     classes player = classSelection();
-    battles fight;
-    classes UpdatedPlayer = fight.battle(player);
+    while (player.hp >= 0) {
+        battles fight;
+        classes UpdatedPlayer = fight.battle(player);
+    }
     return 0;
 }

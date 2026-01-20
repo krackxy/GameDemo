@@ -5,6 +5,7 @@
 
 class level1 {
 public:
+    static level1 lowTierCombat(int);
     int hp;
     DamageVun dmgVun;
     int ac;

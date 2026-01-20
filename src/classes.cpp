@@ -40,7 +40,7 @@ classes classSelection() {
     }
 }
 
-summons Summon(int id) {
+summons summons::summon(int id) {
     switch (id) {
         case 2: {
             //Imp
@@ -55,14 +55,14 @@ summons Summon(int id) {
             return summons(5,8,10,3, "Aero sprit");
         }
     }
+    return summons(0,0,0,0,"none");
 }
 
-level1 lowTierCombat() {
-    level1 goblin(5,11,3,8,3,1,"Goblin",DamageVun::None, false);
-    level1 kobold(6, 12, 2, 8, 3, 2,"Kobold",DamageVun::None, false);
-    level1 bear(12, 8, 8, 6, 2, 3,"Bear",DamageVun::Fire, false);
-    level1 Bandit(8, 14, 4, 4, 3, 4,"Bandit",DamageVun::None, false);
-    int enemy = rand()%4+1;
+level1 level1::lowTierCombat(int enemy) {
+    level1 goblin(5,11,3,8,3,1,"Goblin",DamageVun::None, "");
+    level1 kobold(6, 12, 2, 8, 3, 2,"Kobold",DamageVun::None, "");
+    level1 bear(12, 8, 8, 6, 2, 3,"Bear",DamageVun::Fire, "");
+    level1 Bandit(8, 14, 4, 4, 3, 4,"Bandit",DamageVun::None, "");
     switch (enemy) {
         case 1: {
             //Goblin

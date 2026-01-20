@@ -5,7 +5,7 @@
 
 class battles{
 public:
-    classes battle(classes);
+    static classes battle(classes);
     void updateLvl();
 
 };
